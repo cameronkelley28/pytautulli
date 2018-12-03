@@ -100,12 +100,24 @@ class Tautulli(object):
                             data['movie'] = row.get('title')
                         except (IndexError, KeyError):
                             data['movie'] = None
+                    if stat.get('stat_id') == 'popular_movies':
+                        try:
+                            row = stat.get('rows', {})[0]
+                            data['popular_movies'] = row.get('title')
+                        except (IndexError, KeyError):
+                            data['popular_movies'] = None
                     if stat.get('stat_id') == 'top_tv':
                         try:
                             row = stat.get('rows', {})[0]
                             data['tv'] = row.get('title')
                         except (IndexError, KeyError):
                             data['tv'] = None
+                    if stat.get('stat_id') == 'popular_tv':
+                        try:
+                            row = stat.get('rows', {})[0]
+                            data['popular_tv'] = row.get('title')
+                        except (IndexError, KeyError):
+                            data['popular_tv'] = None
                     if stat.get('stat_id') == 'top_users':
                         try:
                             row = stat.get('rows', {})[0]
